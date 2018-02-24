@@ -17,19 +17,19 @@
 	minishift start --memory=12000 --vm-driver=xhyve --v=999 --logtostderr --show-	libmachine-logs --cpus=4 
 	-	Note: By default, Minishift uses the driver most relevant to 	the host OS. To use a different driver, set the --vm-driver flag in 	minishift start. For example, to use VirtualBox instead of KVM on 	Linux operating systems, run minishift start --vm- 	driver=virtualbox
 	6.1	You will start seeing the following messages
-		-- Starting profile ‘minishift'
-		-- Checking if requested hypervisor 'xhyve' is supported on 		   this platform … OK
+		-- Starting profile √îminishift'
+		-- Checking if requested hypervisor 'xhyve' is supported on 		   this platform √â OK
 		-- Checking if xhyve driver is installed ...
 		Driver is available at /usr/local/bin/docker-machine-driver-		xhyve
-		Checking for setuid bit … OK
-		-- Checking the ISO URL … OK
+		Checking for setuid bit √â OK
+		-- Checking the ISO URL √â OK
 		-- Starting local OpenShift cluster using 'xhyve' hypervisor 
-		-- Minishift VM will be configured with …
+		-- Minishift VM will be configured with √â
 		    Memory:    2 GB
 		    vCPUs :    2
 		    Disk size: 20 GB 
 		Downloading ISO 'https://github.com/minishift/minishift-b2d-		iso/releases/download/v1.2.0/minishift-b2d.iso' 40.00 MiB / 4		0.00 MiB 				
-		[==============] 100.00% 0s -- Starting Minishift VM ……………..
+		[==============] 100.00% 0s -- Starting Minishift VM √â√â√â√â√â..
 		-- Exporting of OpenShift images is occuring in background 		process with pid 4351.
  	6.2 OpenShift server started. 
 		The server is accessible via web console at: 
@@ -39,26 +39,26 @@
 	6.3	The IP is dynamically generated for each OpenShift cluster. 		To check the IP, run the minishift ip command.
 	6.4	Use minishift oc-env to display the command you need to type 		into your shell in order to add the oc binary to your PATH 		environment variable.
 	6.5	$ minishift oc-env 
-		export PATH="/Users/<user>/.minishift/cache/oc/v3.7.1/ 			darwin:$PATH” 
+		export PATH="/Users/<user>/.minishift/cache/oc/v3.7.1/ 			darwin:$PATH√ì 
 		# Run this command to configure your shell:
 		# eval $(minishift oc-env)
 7.	eval $(minishift oc-env)
 8.	To deploy the integrated Docker registry:
 	$ sudo oc adm registry 
 9.	$ minishift docker-env 
-	export DOCKER_TLS_VERIFY="1” 
-	export DOCKER_HOST="tcp://192.168.64.6:2376” 
-	export DOCKER_CERT_PATH="/Users/<user>/.minishift/certs” 
-	# Run this command to configure your shell: 
-	# eval $(minishift docker-env) 
+	export DOCKER_TLS_VERIFY="1√ì 
+	export DOCKER_HOST="tcp://192.168.64.6:2376√ì 
+	export DOCKER_CERT_PATH="/Users/<user>/.minishift/certs√ì 
+	-Run this command to configure your shell: 
+	- eval $(minishift docker-env) 
 10.	$ eval $(minishift docker-env) 
-11.	#docker login -u developer -p $(oc whoami -t) $(minishift openshift registry) 
+11.	docker login -u developer -p $(oc whoami -t) $(minishift openshift registry) 
 Ensure that the Docker daemon is running with the following argument:
     	--insecure-registry 172.30.0.0/16
 12.	$ docker ps
 
 Troubleshooting:
-1. Containers are getting evicted because “The node was low on resource: imagefs.”, make sure that the minishit is started with the right options, the command should look like this:
+1. Containers are getting evicted because √íThe node was low on resource: imagefs.√ì, make sure that the minishit is started with the right options, the command should look like this:
 minishift start --memory=12000 --vm-driver=xhyve --v=999 --logtostderr --show-libmachine-logs --cpus=4
 2. Registry fails with connection refused:
 make sure do delete all the docker processes, images (docker ps, docker ps -a, docker images) and try to push the images again. Make sure to be in minishift oc-env before building and pushing the images.
