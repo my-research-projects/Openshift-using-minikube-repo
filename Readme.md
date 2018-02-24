@@ -40,8 +40,8 @@
 	6.4	Use minishift oc-env to display the command you need to type 		into your shell in order to add the oc binary to your PATH 		environment variable.
 	6.5	$ minishift oc-env 
 		export PATH="/Users/<user>/.minishift/cache/oc/v3.7.1/ 			darwin:$PATHÓ 
-		# Run this command to configure your shell:
-		# eval $(minishift oc-env)
+		- Run this command to configure your shell:
+		- eval $(minishift oc-env)
 7.	eval $(minishift oc-env)
 8.	To deploy the integrated Docker registry:
 	$ sudo oc adm registry 
