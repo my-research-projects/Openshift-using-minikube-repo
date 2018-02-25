@@ -67,6 +67,9 @@ From command/terminal prompt execute the following:
 - minishift ssh
 - sudo sysctl -w vm.max_map_count=262144
 - exit
+4. WARNING! Using --password via the CLI is insecure. Use --password-stdin. Error response from daemon: Get http://172.30.1.1:5000/v2/: unauthorized: authentication required
+To fix this issue, run: oc login -u system:admin (admin/admin) and execute the shell script again: "sh install_minishift_openshift.sh". If that doesn't help, execute each command manully from "install_minishift_openshift.sh"
+ 
 
 Usage: (Note: I built and deployed to Openshift on macOS 10.13.1 (17B1003)
 
