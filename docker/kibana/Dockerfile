@@ -6,9 +6,6 @@ ENV KIBANA_HOME /usr/local/kibana
 
 ENV WORKING_DIR /usr/local/scripts
 
-#RUN apt-get update && \
-#      apt-get -y install sudo
-
 RUN apt-cache policy kibana
 
 RUN apt-get update && apt-get install -y procps
@@ -31,17 +28,10 @@ RUN mkdir -p $KIBANA_HOME/kibana-5.4.0-linux-x86_64
 		tar -xvf kibana-5.4.0-linux-x86_64.tar.gz && \
 	mv kibana-5.4.0-linux-x86_64 $KIBANA_HOME
 
-#RUN /usr/local/kibana/bin/kibana-plugin remove x-pack
-
 ADD kibana.yml $KIBANA_HOME/kibana-5.4.0-linux-x86_64/config/kibana.yml
-#RUN bin/kibana-plugin remove x-pack && \
-#    kibana 2>&1 | grep -m 1 "Optimization of .* complete"
 
 RUN chown -R kibana:kibana /usr/local/kibana/
 RUN chown -R kibana:kibana /usr/local/scripts/kibana.yml
-#RUN chown -R kibana:kibana /usr/local/kibana/src/ui/views/chrome.jade
-#RUN chown -R kibana:kibana /usr/local/kibana/optimize/bundles/axaMonkeyPatchXhr.js
-#RUN chown -R kibana:kibana /usr/local/kibana/src/ui/views/chrome.jade
 RUN chown kibana:kibana /usr/local/scripts/entrypoint-kibana.sh
 RUN chmod +x /usr/local/scripts/entrypoint-kibana.sh
 RUN echo $(ls -ltr /usr/local/kibana/kibana-5.4.0-linux-x86_64/optimize/.babelcache.json)
