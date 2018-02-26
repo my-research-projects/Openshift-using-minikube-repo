@@ -58,7 +58,7 @@ Ensure that the Docker daemon is running with the following argument:
 12.	$ docker ps
 
 Troubleshooting:
-1. Containers are getting evicted because ÒThe node was low on resource: imagefs.Ó, make sure that the minishit is started with the right options, the command should look like this:
+1. Containers are getting evicted because "The node was low on resource: imagefs.", make sure that the minishit is started with the right options, the command should look like this:
 minishift start --memory=12000 --vm-driver=xhyve --v=999 --logtostderr --show-libmachine-logs --cpus=4
 2. Registry fails with connection refused:
 make sure do delete all the docker processes, images (docker ps, docker ps -a, docker images) and try to push the images again. Make sure to be in minishift oc-env before building and pushing the images.
