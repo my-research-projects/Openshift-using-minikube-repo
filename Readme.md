@@ -1,5 +1,5 @@
 1.	Overview:
-	The following section describes how to install Minishift and the r	equired dependencies.
+	The following section describes how to install Minishift and the required dependencies.
 2.	Prerequisites:
 	Minishift requires a hypervisor to start the virtual machine on 	which the OpenShift cluster is provisioned. Verify that the 	hypervisor of your choice is installed and enabled on your system 	before you start Minishift.
 3.	xhyve, a lightweight OS X virtualization solution:
